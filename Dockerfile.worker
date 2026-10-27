@@ -1,0 +1,9 @@
+FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime
+ENV DEBIAN_FRONTEND=noninteractive PYTHONUNBUFFERED=1 WORK_DIR=/workspace/jobs
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg git && rm -rf /var/lib/apt/lists/*
+WORKDIR /workspace
+COPY requirements-worker.txt ./requirements-worker.txt
+RUN pip install --no-cache-dir -r requirements-worker.txt
+COPY app ./app
+COPY worker ./worker
+CMD ["python", "-m", "worker.worker"]
