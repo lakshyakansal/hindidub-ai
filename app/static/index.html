@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10111a"><title>HindiDub AI — Hindi video dubbing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav"><a class="brand" href="/"><span class="brand-mark">ह</span><span>HindiDub<span class="brand-ai"> AI</span></span></a><div class="nav-right"><span class="local-pill"><i></i> Local-first processing</span><a href="#how-it-works">How it works</a></div></nav>
+    <main>
+      <section class="hero"><div class="eyebrow"><span class="spark">✳</span> OPEN-SOURCE AI VIDEO DUBBING</div><h1>Every voice.<br><span class="gradient-text">Hindi mein.</span></h1><p class="hero-copy">Turn long videos into Hindi-dubbed videos while keeping the original picture intact. Translate speech, clone the speaker's voice and sync dialogue to the original timeline.</p><div class="hero-tags"><span>↗ Up to 30 minutes</span><span>◉ Original video stream copied</span><span>⌁ Voice cloning</span></div></section>
+      <section class="workspace" aria-label="Upload video">
+        <div class="section-head"><div><div class="step-label">YOUR WORKSPACE <span>01 / 03</span></div><h2>Start with a video</h2><p>Choose a video file from your device. Processing runs on the machine hosting this app.</p></div><div class="file-icon">↥</div></div>
+        <form id="upload-form">
+          <label class="dropzone" id="dropzone" for="video-file"><input id="video-file" type="file" accept="video/mp4,video/quicktime,video/x-matroska,video/webm,video/x-msvideo,.m4v,.mkv,.mov,.mp4,.webm,.avi" required><span class="upload-icon">↑</span><strong id="drop-title">Drop your video here</strong><span class="drop-sub" id="drop-sub">or <em>browse files</em> on your device</span><span class="formats">MP4 · MOV · MKV · WEBM · AVI <b>•</b> up to 2 GB</span></label>
+          <div class="file-row" id="file-row" hidden><div class="file-type">MP4</div><div class="file-info"><strong id="file-name"></strong><span id="file-size"></span></div><button class="text-button" id="remove-file" type="button">Remove</button></div>
+          <div class="settings-grid"><div class="setting"><span class="setting-label">OUTPUT LANGUAGE</span><div class="setting-value"><span class="lang-badge">अ</span><span>Hindi <small>हिन्दी</small></span><span class="locked">FIXED</span></div></div><div class="setting"><span class="setting-label">VOICE STYLE</span><div class="setting-value"><span class="voice-badge">≈</span><span>Original speaker <small>AI voice cloning</small></span><span class="locked">CLONE</span></div></div><div class="setting"><span class="setting-label">VIDEO HANDLING</span><div class="setting-value"><span class="video-badge">▣</span><span>Keep original frames <small>Copy video stream</small></span><span class="locked">ON</span></div></div></div>
+          <div class="notice"><span>ⓘ</span><p>For best results, use clear speech and a sample where the speaker is audible. The first version replaces the full audio track, including music and sound effects.</p></div>
+          <button class="primary-button" id="submit-button" type="submit"><span>Start Hindi dubbing</span><span class="button-arrow">↗</span></button>
+          <p class="privacy-note"><span>♧</span> Files are processed by your own app server. Don't upload voices or videos without permission.</p>
+        </form>
+      </section>
+      <section class="progress-card" id="progress-card" hidden><div class="progress-top"><div><div class="step-label">YOUR JOB <span id="job-id"></span></div><h2 id="job-title">Preparing your video…</h2><p id="job-message">Waiting for processing to begin.</p></div><div class="progress-number" id="progress-number">0%</div></div><div class="progress-track"><div id="progress-bar"></div></div><div class="progress-bottom"><span id="progress-state">QUEUED</span><span id="progress-time">This may take a while on CPU.</span></div><div class="result-actions" id="result-actions" hidden><a class="primary-button download-button" id="download-link" href="#"><span>Download Hindi video</span><span>↓</span></a><a class="secondary-button" id="transcript-link" href="#">Download Hindi transcript</a></div><div class="error-box" id="error-box" hidden></div></section>
+      <section class="how" id="how-it-works"><div class="step-label">UNDER THE HOOD <span>02 / 03</span></div><h2>From one language to another.</h2><div class="pipeline"><div class="pipeline-step"><div class="pipeline-icon">◉</div><div><b>01 · Listen</b><p>Speech recognition finds spoken words and their timestamps.</p></div></div><div class="pipeline-step"><div class="pipeline-icon">文</div><div><b>02 · Translate</b><p>A multilingual translation model converts each segment into Hindi.</p></div></div><div class="pipeline-step"><div class="pipeline-icon">♫</div><div><b>03 · Re-voice</b><p>Voice cloning generates Hindi speech, then timing is adjusted per segment.</p></div></div><div class="pipeline-step"><div class="pipeline-icon">▣</div><div><b>04 · Preserve</b><p>FFmpeg copies the original video stream and muxes the new Hindi audio.</p></div></div></div></section>
+      <section class="limits"><div class="limit-symbol">✳</div><div><div class="step-label">A REALISTIC NOTE <span>03 / 03</span></div><h3>Built for control, not magic.</h3><p>Voice similarity and timing depend on the model, language and source audio. Hindi can take more or fewer seconds than the original line; extreme time-stretching may sound unnatural. The video frames are copied, but the original soundtrack is replaced.</p></div></section>
+    </main>
+    <footer><a class="brand footer-brand" href="/"><span class="brand-mark">ह</span><span>HindiDub<span class="brand-ai"> AI</span></span></a><span>Open-source building blocks · Runs on your own server</span></footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body></html>
