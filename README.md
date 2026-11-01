@@ -119,3 +119,9 @@ Keep the worker running with systemd or a process supervisor. Only run one worke
 - **CUDA OOM:** use `WHISPER_MODEL=base`, ensure only one job is running, or use a GPU with more VRAM. NLLB and TTS model memory is significant.
 - **Missing FFmpeg:** confirm `ffmpeg -version` and `ffprobe -version` inside the worker container.
 - **Model API changed:** check upstream Chatterbox docs and ensure the pinned model package matches the code.
+
+<div align="center">
+
+Developed by Lakshya Kansal
+
+</div>
