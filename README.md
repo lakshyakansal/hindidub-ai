@@ -4,7 +4,26 @@ A split deployment: Render hosts the lightweight web/API; a separate NVIDIA GPU 
 
 ## Architecture
 
-Browser → Render FastAPI → presigned object-storage upload → Redis queue → external GPU worker → Whisper transcription → NLLB Hindi translation → Chatterbox multilingual voice cloning → pitch-preserving FFmpeg timing adjustment → FFmpeg mux with `-c:v copy` → object storage → presigned download.
+flowchart TD
+    A["🌐 Browser / Frontend"] --> B["⚡ Render FastAPI Backend"]
+    B --> C["☁️ Presigned Object Storage Upload"]
+    C --> D["📨 Redis Job Queue"]
+    D --> E["🖥️ External GPU Worker"]
+
+    E --> F["🎙️ Whisper Speech-to-Text"]
+    F --> G["🌍 NLLB Hindi Translation"]
+    G --> H["🗣️ Chatterbox Multilingual Voice Cloning"]
+    H --> I["🎚️ Pitch-Preserving FFmpeg Timing Adjustment"]
+    I --> J["🎬 FFmpeg Audio-Video Muxing"]
+
+    J --> K["📦 Object Storage"]
+    K --> L["⬇️ Presigned Download URL"]
+    L --> M["🎉 Hindi-Dubbed Video"]
+
+    style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style B fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style E fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+    style M fill:#dcfce7,stroke:#16a34a,color:#14532d
 
 ## Required services
 
